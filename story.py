@@ -1,4 +1,5 @@
 import random
+import json
 
 # Define the characters and items
 characters = {
@@ -16,7 +17,9 @@ items = {
     "Ancient Relic": {"description": "An ancient relic believed to bring harmony between humans and wildlife."}
 }
 
-# Define the story
+inventory = []
+health = 100
+
 def start_story():
     print("In the heart of Churchill, where the tundra meets the icy waters of Hudson Bay, lived a polar bear named Nanuq.")
     print("Nanuq, known for his curiosity and gentle spirit, felt a pull towards the human settlement, driven by dreams of a mysterious artifact.")
@@ -40,32 +43,32 @@ def caribou_guidance():
     print("Tuktu suggests they seek the wisdom of the beluga whales in the Churchill River.")
     print("Amidst the haunting songs of the whales, they learn of a submerged cave where ice never melts, a place untouched by time.")
     print("They now have a clearer path to the Ice Heart.")
-    print()
+    collect_item("Map")
 
 def polar_bears_international():
     print("Nanuq, Kigla, and Siku visit the representatives from Polar Bears International.")
     print("The representatives share data on ice patterns, inadvertently guiding the trio towards an area where the Ice Heart is rumored to be buried under ancient ice.")
     print("They now have a map to guide them on their journey.")
-    print()
+    collect_item("Map")
 
 def explore_tundra():
     print("Nanuq, Kigla, and Siku explore the tundra, encountering various wildlife and collecting useful items.")
     print("They find an ancient relic that might be connected to the Ice Heart.")
-    print()
+    collect_item("Ancient Relic")
 
 def face_tornaq():
     print("As they venture deeper, they face their greatest challenge yet.")
     print("A rogue polar bear, Tornaq, blocks their way.")
     print("Nanuq engages Tornaq not in battle but in a display of strength and wisdom, showcasing the unity of their group.")
     print("Moved by this display, Tornaq retreats, allowing them passage.")
-    print()
+    take_damage(20)
 
 def find_ice_heart():
     print("Reaching the cave, they find the Ice Heart, not as a physical object but as a phenomenon.")
     print("The ice resonates with the heartbeat of the Earth itself.")
     print("Nanuq realizes his journey was about becoming a bridge between worlds.")
     print("He understands the messages of the land, the sea, and the sky, and in doing so, he becomes the Ice Heart.")
-    print()
+    collect_item("Ice Heart")
 
 def end_story():
     print("Returning to Churchill, Nanuq's presence begins to subtly influence the town.")
@@ -74,6 +77,35 @@ def end_story():
     print("The Sayisi Dene, through Ataata, celebrate Nanuq's journey in their stories, ensuring it will inspire future generations.")
     print("Nanuq, now a legend himself, continues to roam the tundra as a symbol of harmony.")
     print()
+
+def collect_item(item):
+    inventory.append(item)
+    print(f"You have collected: {item}")
+
+def take_damage(amount):
+    global health
+    health -= amount
+    print(f"You took {amount} damage. Your health is now {health}.")
+    if health <= 0:
+        print("You have perished in the tundra.")
+        exit()
+
+def save_game(filename="savegame.json"):
+    game_state = {
+        "inventory": inventory,
+        "health": health
+    }
+    with open(filename, "w") as file:
+        json.dump(game_state, file)
+    print("Game saved.")
+
+def load_game(filename="savegame.json"):
+    global inventory, health
+    with open(filename, "r") as file:
+        game_state = json.load(file)
+    inventory = game_state["inventory"]
+    health = game_state["health"]
+    print("Game loaded.")
 
 # Main function to run the story
 def main():
