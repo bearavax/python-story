@@ -21,61 +21,53 @@ inventory = []
 health = 100
 
 def start_story():
-    print("In the heart of Churchill, where the tundra meets the icy waters of Hudson Bay, lived a polar bear named Nanuq.")
-    print("Nanuq, known for his curiosity and gentle spirit, felt a pull towards the human settlement, driven by dreams of a mysterious artifact.")
-    print("One crisp morning, as the first snows began to fall, Nanuq encountered a Sayisi Dene elder, Ataata.")
-    print("Ataata spoke of an ancient relic, the 'Ice Heart,' believed to be hidden somewhere in Churchill's vicinity.")
-    print("This relic, according to legend, could communicate with all creatures, ensuring peace and understanding across species.")
-    print("Driven by this tale, Nanuq embarked on his quest, joined by a wise old raven, Kigla, and a spirited Arctic fox, Siku.")
-    print("Together, they formed an unlikely trio, each bringing unique skills to their adventure.")
+    print("In the heart of Churchill, lived a polar bear named Nanuq.")
+    print("Driven by dreams of a mysterious artifact, Nanuq felt a pull towards the human settlement.")
+    print("One morning, Nanuq encountered Ataata, a Sayisi Dene elder.")
+    print("Ataata spoke of the 'Ice Heart,' believed to be hidden nearby.")
+    print("Joined by Kigla the raven and Siku the Arctic fox, Nanuq embarked on a quest.")
     print()
 
 def make_choice():
     print("What will Nanuq do next?")
-    print("1. Seek guidance from the herd of caribou.")
-    print("2. Visit the representatives from Polar Bears International.")
-    print("3. Explore the tundra with Kigla and Siku.")
+    print("1. Seek guidance from the caribou.")
+    print("2. Visit Polar Bears International.")
+    print("3. Explore the tundra.")
     choice = input("Enter the number of your choice: ")
     return choice
 
 def caribou_guidance():
-    print("Nanuq, Kigla, and Siku seek guidance from a herd of caribou, led by a majestic bull named Tuktu.")
-    print("Tuktu suggests they seek the wisdom of the beluga whales in the Churchill River.")
-    print("Amidst the haunting songs of the whales, they learn of a submerged cave where ice never melts, a place untouched by time.")
-    print("They now have a clearer path to the Ice Heart.")
+    print("Nanuq, Kigla, and Siku seek guidance from Tuktu, the caribou.")
+    print("Tuktu suggests seeking the wisdom of the beluga whales.")
+    print("They learn of a submerged cave where ice never melts.")
     collect_item("Map")
 
 def polar_bears_international():
-    print("Nanuq, Kigla, and Siku visit the representatives from Polar Bears International.")
-    print("The representatives share data on ice patterns, inadvertently guiding the trio towards an area where the Ice Heart is rumored to be buried under ancient ice.")
-    print("They now have a map to guide them on their journey.")
+    print("Nanuq, Kigla, and Siku visit Polar Bears International.")
+    print("They share data on ice patterns, guiding the trio towards the Ice Heart.")
     collect_item("Map")
 
 def explore_tundra():
-    print("Nanuq, Kigla, and Siku explore the tundra, encountering various wildlife and collecting useful items.")
-    print("They find an ancient relic that might be connected to the Ice Heart.")
+    print("Nanuq, Kigla, and Siku explore the tundra.")
+    print("They find an ancient relic connected to the Ice Heart.")
     collect_item("Ancient Relic")
 
 def face_tornaq():
-    print("As they venture deeper, they face their greatest challenge yet.")
     print("A rogue polar bear, Tornaq, blocks their way.")
-    print("Nanuq engages Tornaq not in battle but in a display of strength and wisdom, showcasing the unity of their group.")
-    print("Moved by this display, Tornaq retreats, allowing them passage.")
+    print("Nanuq engages Tornaq in a display of strength and wisdom.")
+    print("Tornaq retreats, allowing them passage.")
     take_damage(20)
 
 def find_ice_heart():
-    print("Reaching the cave, they find the Ice Heart, not as a physical object but as a phenomenon.")
-    print("The ice resonates with the heartbeat of the Earth itself.")
-    print("Nanuq realizes his journey was about becoming a bridge between worlds.")
-    print("He understands the messages of the land, the sea, and the sky, and in doing so, he becomes the Ice Heart.")
+    print("Reaching the cave, they find the Ice Heart.")
+    print("The ice resonates with the heartbeat of the Earth.")
+    print("Nanuq becomes the bridge between worlds.")
     collect_item("Ice Heart")
 
 def end_story():
-    print("Returning to Churchill, Nanuq's presence begins to subtly influence the town.")
-    print("Humans and wildlife start to coexist with a newfound respect.")
-    print("Polar Bears International documents this change as a case study on coexistence.")
-    print("The Sayisi Dene, through Ataata, celebrate Nanuq's journey in their stories, ensuring it will inspire future generations.")
-    print("Nanuq, now a legend himself, continues to roam the tundra as a symbol of harmony.")
+    print("Returning to Churchill, Nanuq's presence influences the town.")
+    print("Humans and wildlife start to coexist with respect.")
+    print("Nanuq, now a legend, continues to roam the tundra as a symbol of harmony.")
     print()
 
 def collect_item(item):
